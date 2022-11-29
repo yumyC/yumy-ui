@@ -1,0 +1,66 @@
+button {
+  &:not([role="tab"], .trigger, [class*="vjs"]) {
+    @include btn-primary;
+    &.btn-secondary {
+      @include btn-secondary;
+    }
+  }
+}
+.btn {
+  &:not(input),
+  &.btn-primary {
+    @include btn-primary;
+  }
+  &.btn-secondary {
+    @include btn-secondary;
+  }
+}
+.more-link:not(.has-long-arrow) {
+  a {
+    @include btn-primary;
+
+    &.ext {
+      + .icon-share {
+        display: none;
+      }
+    }
+  }
+  &:hover {
+    a {
+      text-decoration: none;
+    }
+  }
+}
+.field--name-field-link,
+.field--name-field-link-button {
+  a {
+    @include btn-primary;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+.btn-ext {
+  @include btn-icon;
+}
+
+input.button {
+  @include btn-primary;
+  &.button--primary {
+    @include btn-primary;
+  }
+}
+
+header .button:not(input),
+.button.button--primary,
+.node-preview-backlink {
+  @include btn-primary;
+
+  text-decoration: none;
+}
+#drupal-off-canvas {
+  .button,
+  input[type="submit"].button--primary {
+    @include btn-primary;
+  }
+}

@@ -1,0 +1,32 @@
+@mixin link-has-arrow {
+  @include right-arrow($size: 11.5, $borderSize: $border-size-md, $color: $theme-line-color);
+
+  margin-right: px2calculations(20);
+  cursor: pointer;
+
+  &::after {
+    top: 0;
+    left: auto;
+    bottom: 0;
+    right: px2calculations(-18);
+    border-bottom: none;
+  }
+
+  &.arrow-black {
+    padding: 0 px2calculations(25);
+    &::after {
+      border-color: $black;
+    }
+    + .icon-share {
+      margin-left: px2calculations(20);
+    }
+  }
+
+  .color-primary & {
+    color: $theme-primary-color;
+    &::after {
+      border-color: $theme-primary-color;
+    }
+  }
+  @content;
+}

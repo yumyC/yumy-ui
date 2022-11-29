@@ -12,6 +12,7 @@
     "font-family-name-quotes": null,
     "selector-type-no-unknown": null,
     "scss/no-global-function-names": null,
+    "function-calc-no-unspaced-operator": null,
     "no-unknown-animations": true,
     "media-feature-name-no-unknown": [true, {
       "ignoreMediaFeatureNames": [
@@ -27,7 +28,7 @@
     "string-quotes": "double",
     "value-keyword-case": null,
     "at-rule-no-unknown": [true, {
-      "ignoreAtRules": ["if", "else", "warn", "each", "include", "mixin", "extend", "function", "return", "use"]
+      "ignoreAtRules": ["debug", "error", "if", "else", "warn", "each", "for", "while", "include", "mixin", "extend", "function", "return", "use"]
     }],
     "font-family-no-missing-generic-family-keyword": null,
     "selector-class-pattern": null,

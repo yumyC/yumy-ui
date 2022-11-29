@@ -1,0 +1,46 @@
+// Pc
+@each $key, $value in $spacing-size-groups {
+  // margin
+  .c-ml#{$key} {
+    margin-left: #{$value}px !important;
+  }
+  .c-mr#{$key} {
+    margin-right: #{$value}px !important;
+  }
+  .c-mt#{$key} {
+    margin-bottom: #{$value}px !important;
+  }
+  .c-mb#{$key} {
+    margin-bottom: #{$value}px !important;
+  }
+  .c-m-x#{$key} {
+    margin-left: #{$value}px !important;
+    margin-right: #{$value}px !important;
+  }
+  .c-m-y#{$key} {
+    margin-top: #{$value}px !important;
+    margin-bottom: #{$value}px !important;
+  }
+
+  // padding
+  .c-pt#{$key} {
+    padding-top: #{$value}px !important;
+  }
+  .c-pl#{$key} {
+    padding-left: #{$value}px !important;
+  }
+  .c-pr#{$key} {
+    padding-right: #{$value}px !important;
+  }
+  .c-pb#{$key} {
+    padding-bottom: #{$value}px !important;
+  }
+  .c-p-x#{$key} {
+    padding-left: #{$value}px !important;
+    padding-right: #{$value}px !important;
+  }
+  .c-p-y#{$key} {
+    padding-top: #{$value}px !important;
+    padding-bottom: #{$value}px !important;
+  }
+}

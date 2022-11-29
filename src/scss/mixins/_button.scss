@@ -1,0 +1,200 @@
+@mixin btn {
+  display: inline-block;
+  width: auto;
+  height: auto;
+  padding: fluid-val(15);
+  border: 0;
+  border-radius: 0;
+  background-image: none;
+  transition: all .5s;
+  cursor: pointer;
+
+  @include pc-only {
+    font-size: px2calculations(15);
+  }
+
+  @include tablet-only {
+    font-size: fluid-val(15);
+  }
+
+  @include mobile {
+    font-size: fluid-val(12, $max-width: 375);
+  }
+}
+
+@mixin btn-arrow($color: $white) {
+  @include right-arrow($size: 10, $borderSize: $border-size-md, $color: $color);
+
+  min-width: px2calculations(280);
+  padding-right: px2calculations(150);
+
+  &::after {
+    right: px2calculations(16);
+    left: auto;
+    transition: all .3s ease-in-out .15s;
+  }
+
+  @include mobile {
+    max-width: px2calculations(280);
+    padding: px2calculations(19) px2calculations(30);
+  }
+}
+
+@mixin btn-width($width) {
+  min-width: px2calculations($width);
+
+  @include mobile {
+    min-width: px2calculations(280);
+  }
+}
+
+@mixin btn-hover-primary($color: $white, $hover-color: $theme-primary-color, $hover-bg-color: $white) {
+  [class*="icon"] {
+    &::before,
+    &::after {
+      color: $color;
+      border-color: $color;
+    }
+  }
+  &:hover {
+    color: $hover-color;
+    background-color: $hover-bg-color;
+    box-shadow: inset 0 0 0 2px $hover-color;
+
+    [class*="icon"] {
+      &::before,
+      &::after {
+        color: $hover-color;
+        border-color: $hover-color;
+      }
+    }
+    &::after {
+      border-color: $hover-color;
+    }
+  }
+
+  @content;
+}
+
+@mixin btn-primary {
+  @include btn;
+
+  position: relative;
+  color: $white;
+  background-color: $theme-primary-color;
+
+  @include btn-hover-primary;
+}
+
+@mixin btn-secondary {
+  @include btn;
+
+  color: $black;
+  width: auto;
+  background-color: $theme-secondary-color;
+
+  @include btn-hover-primary(
+    $color: $black,
+    $hover-bg-color: $theme-secondary-color,
+    $hover-color: $black
+  ) {
+    &:hover {
+      box-shadow: none;
+    }
+  }
+
+  @include mobile {
+    color: $black;
+  }
+}
+
+@mixin btn-icon {
+  a {
+    @include btn-primary;
+
+    text-align: center;
+
+    [class*="icon"] {
+      &::before,
+      &::after {
+        color: $white;
+        border-color: $white;
+      }
+    }
+
+    &:hover {
+      text-decoration: none;
+
+      [class*="icon"] {
+        &::before,
+        &::after {
+          color: $theme-primary-color;
+          border-color: $theme-primary-color;
+        }
+        &::after {
+          color: $white;
+          background-color: $theme-primary-color;
+        }
+      }
+    }
+  }
+}
+
+@mixin transition-button-common {
+  a {
+    overflow: hidden;
+  }
+  .transition {
+    display: inline-block;
+    opacity: 0;
+    transition: all .3s ease;
+    + span {
+      position: absolute;
+      opacity: 1;
+      left: px2calculations(15);
+      transition: opacity .3s ease;
+    }
+  }
+
+  @include mobile-only {
+    &:hover {
+      .transition {
+        opacity: 1;
+        + span {
+          opacity: 0;
+        }
+        @content;
+      }
+    }
+  }
+}
+
+@mixin transition-button-left {
+  @include transition-button-common {
+    transform: translateX(0);
+  }
+
+  .transition {
+    transform: translateX(calc(-100% - 15px));
+  }
+}
+
+@mixin transition-button-top {
+  @include transition-button-common {
+    transform: translateY(0);
+  }
+
+  .transition {
+    transform: translateY(calc(-100% - 15px));
+  }
+}
+
+@mixin transition-button-bottom {
+  @include transition-button-common {
+    transform: translateY(0);
+  }
+
+  .transition {
+    transform: translateY(calc(100% + 15px));
+  }
+}

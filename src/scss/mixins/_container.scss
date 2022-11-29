@@ -1,0 +1,42 @@
+// Container mixins
+
+@mixin common-padding-x($gutter: $common-padding-x) {
+  padding-right: px2calculations($gutter);
+  padding-left: px2calculations($gutter);
+}
+
+@mixin set-container($max-width: $content-width, $gutter: $common-padding-x) {
+  width: 100%;
+  max-width: $max-width;
+  margin-right: auto;
+  margin-left: auto;
+
+  @include tablet-below {
+    @include common-padding-x($gutter);
+  }
+}
+
+@mixin set-content-align-center {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@mixin set-content-full {
+  @include set-content-align-center;
+
+  position: relative;
+  width: calc((var(--vw, 1vw) * 100));
+  max-width: calc((var(--vw, 1vw) * 100));
+  z-index: 1;
+}
+
+@mixin set-content-center-up-down {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@mixin set-content-center {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}

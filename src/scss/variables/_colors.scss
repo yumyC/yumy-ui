@@ -1,0 +1,76 @@
+// Colors
+$deep-purple: #411c3e;
+$light-purple: #505;
+$light-green: #d4e8c0;
+$light-green-20: #b1caa9;
+$light-green-20-8: #b1caa980;
+$light-green-40: #bac8bc;
+$light-green-60: #d8e4d4;
+$deep-green: #139169;
+$terumo-deep-green: #008060;
+$dark-green: $light-green-40;
+$red: #ff0006;
+$red-10: #d8211d;
+$blue: #00429b;
+$light-blue: #2968b2;
+$orange: #ffb25b;
+$white: #fff;
+$white-20: #f2f2f3;
+$black: #000;
+
+// Gray color
+$light-gray: #bbc0ba;
+$light-gray-10: #b7b7b7;
+$light-gray-20: #cbcbcb;
+$light-gray-25: #f8f8f9;
+$light-gray-30: #f9f9f9;
+$medium-gray: #707070;
+$medium-gray-10: #aeaeae;
+$medium-gray-20: #e6e6e6;
+$deep-gray: #444b52;
+$deep-gray-10: #4b4b4b;
+$dark-gray-20: #4c4948;
+$dark-gray: #e6e6e6;
+
+// Tag color
+$tag-border-color-blue: #9edae6;
+$tag-border-color-green: #69c5b3;
+$tag-border-color-yellow: #e6de77;
+
+// Bg color
+$bg-light-color: $light-gray-30;
+$bg-color: $light-gray-30;
+$bg-deep-color: $dark-gray;
+$bg-color-secondary: $dark-green;
+
+// ThemeColor
+$theme-primary-color: $deep-purple;
+$theme-secondary-color: $light-green-20;
+$theme-line-color: $light-green-20;
+$theme-border-color: $light-gray-10;
+$theme-border-secondary-color: $medium-gray;
+
+// Color group
+$color-group: (
+  "primary": $theme-primary-color,
+  "secondary": $theme-secondary-color,
+  "blue": $tag-border-color-blue,
+  "orange": $orange,
+  "green": $tag-border-color-green,
+  "dark-green": $dark-green,
+  "yellow": $tag-border-color-yellow,
+  "light-gray": $light-gray-10,
+  "gray": $deep-gray-10,
+  "white": $white,
+  "black": $black,
+);
+
+// Scss-docs-start box-shadow-variables
+$box-shadow: 2px 5px 11px rgba($black, .15);
+$box-shadow-hover-primary: 0 0 40px rgba($black, .3);
+$box-shadow-hover-primary-sm: 0 0 10px rgba($black, .16);
+$box-shadow-hover-secondary: 0 0 40px rgba($black, .16);
+$box-shadow-hover-secondary-sm: 0 0 20px rgba($black, .16);
+$box-shadow-hover-thrid: 0 0 10px rgba($black, .29);
+$box-shadow-hover-third: 0 3px 6px rgba($black, .16);
+$box-shadow-hover-four: 0 0 6px rgba($black, .29);

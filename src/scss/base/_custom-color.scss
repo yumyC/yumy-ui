@@ -1,0 +1,13 @@
+@each $key, $value in $color-group {
+  .color-#{$key} {
+    color: $value;
+
+    &::before {
+      color: $value;
+    }
+  }
+
+  .border-color-#{$key} {
+    border-color: $value;
+  }
+}

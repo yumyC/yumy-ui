@@ -1,0 +1,86 @@
+// Image Mixins
+// - Responsive image
+
+@mixin img-fluid {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+
+  .row:not(.no-border) & {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+@mixin image-vw($height, $device) {
+  img {
+    max-height: px2calculations($height);
+    object-fit: cover;
+
+    @if $device == "desktop" {
+      height: px2vw($height, "desktop");
+
+      body.cke_editable & {
+        height: calc(#{px2vw($height, "desktop")} + 10vw);
+      }
+    } @else {
+      height: px2vw($height, "mobile");
+
+      body.cke_editable & {
+        height: calc(#{px2vw($height, "mobile")} + 10vw);
+      }
+    }
+  }
+}
+
+@mixin card-image-primary($height, $mdHeight, $marginSpace: 60) {
+  @include flex-row-center;
+  @include image-vw($height, "desktop");
+  img {
+    &:hover {
+      box-shadow: $box-shadow-hover-secondary;
+    }
+  }
+
+  + .panel-secondary {
+    min-height: calc(100% + #{px2calculations($marginSpace)} - #{px2calculations($height)});
+    height: calc(100% + #{px2calculations($marginSpace)} - #{px2vw($height, "desktop")});
+
+    @include mobile {
+      min-height: calc(100% + #{px2calculations($marginSpace)} - #{px2calculations($height)});
+      height: calc(100% + #{px2calculations($marginSpace)} - #{px2vw($mdHeight, "mobile")});
+    }
+  }
+
+  @include mobile {
+    display: block;
+
+    @include image-vw($mdHeight, "mobile");
+
+    img {
+      width: 100%;
+    }
+  }
+}
+
+@mixin media-ratio($height: 9, $width: 16) {
+  position: relative;
+  width: 100%;
+  height: 0;
+  margin: 0;
+  padding-bottom: px2percent($height, $width);
+
+  > * {
+    @include set-content-center-up-down;
+
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    object-fit: cover;
+  }
+}

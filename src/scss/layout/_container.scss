@@ -1,0 +1,24 @@
+// Container
+html,
+body,
+.dialog-off-canvas-main-canvas {
+  height: 100%;
+}
+
+.dialog-off-canvas-main-canvas {
+  @include flex-column;
+}
+
+.page-container {
+  @include set-container($gutter: 0);
+
+  padding-top: (var(--header-height));
+  margin-bottom: px2calculations($paragraph-margin-bottom);
+
+  @include mobile {
+    margin-bottom: px2calculations(60);
+  }
+}
+.toolbar-oriented .toolbar-bar {
+  position: fixed;
+}

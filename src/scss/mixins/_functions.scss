@@ -1,0 +1,72 @@
+@use "sass:math";
+
+// Functions
+// @function divide($dividend, $divisor, $precision: 10, $dividendUnit: "px", $divisorUnit: "px") {
+//   $sign: if($dividend > 0 and $divisor > 0 or $dividend < 0 and $divisor < 0, 1, -1);
+//   $dividend: abs($dividend);
+//   $divisor: abs($divisor);
+
+//   @if $dividend == 0 {
+//     @return 0;
+//   }
+
+//   @if $divisor == 0 {
+//     @error "Cannot divide by 0";
+//   }
+
+//   $remainder: $dividend;
+//   $result: 0;
+//   $factor: 10;
+
+//   @while $remainder > 0 and $precision >= 0 {
+//     $quotient: 0;
+
+//     @while $remainder >= $divisor {
+//       $remainder: $remainder - $divisor;
+//       $quotient: $quotient + 1;
+//     }
+
+//     $result: $result * 10 + $quotient;
+//     $factor: $factor * .1;
+//     $remainder: $remainder * 10;
+//     $precision: $precision - 1;
+
+//     @if $precision < 0 and $remainder >= $divisor * 5 {
+//       $result: $result + 1;
+//     }
+//   }
+
+//   $result: $result * $factor * $sign;
+//   $dividend-unit: $dividendUnit;
+//   $divisor-unit: $divisorUnit;
+//   $unit-map: (
+//     "px": 1px,
+//     "rem": 1rem,
+//     "em": 1em,
+//     "%": 1%
+//   );
+
+//   @if $dividend-unit != $divisor-unit and map-has-key($unit-map, $dividend-unit) {
+//     $result: $result * map-get($unit-map, $dividend-unit);
+//   }
+
+//   @return $result;
+// }
+
+// Functions
+// px2calculations
+@function px2calculations($dividend, $divisor: $font-size-root, $convertUnit: "rem") {
+  $map-unit-val: map-get($unit-map, $convertUnit);
+  $map-unit-val: if($map-unit-val and $map-unit-val > 0, $map-unit-val, 0);
+
+  @return math.div($dividend, $divisor) * $map-unit-val;
+}
+
+// rem + vw
+@function fluid-val($rootSize: $font-size-root, $min-width: 10, $max-width: 1200) {
+  $value: $min-width - $rootSize;
+  $extra-vw: math.div(abs($value), $max-width) * map-get($unit-map, "vw");
+  $res: calc(#{px2calculations($min-width)} #{if($value < 0, "+", "-")} #{$extra-vw});
+
+  @return $res;
+}

@@ -1,0 +1,246 @@
+// Arrow
+@mixin arrow($size: $spacer, $borderSize: $border-size-sm, $color: $black) {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    width: px2calculations($size);
+    height: px2calculations($size);
+    border-top: px2calculations($borderSize) solid $color;
+    border-right: px2calculations($borderSize) solid $color;
+  }
+}
+
+@mixin top-arrow($size: $spacer, $borderSize: $border-size-md, $color: $black) {
+  @include arrow($size, $borderSize, $color);
+
+  &::after {
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+}
+
+@mixin down-arrow($size: $spacer, $borderSize: $border-size-md, $color: $black) {
+  @include arrow($size, $borderSize, $color);
+
+  &::after {
+    -webkit-transform: rotate(135deg);
+    transform: rotate(135deg);
+  }
+}
+
+@mixin right-arrow($size: $spacer, $borderSize: $border-size-md, $color: $black) {
+  @include arrow($size, $borderSize, $color);
+
+  &::after {
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+}
+
+@mixin right-arrow-max {
+  position: relative;
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    right: px2calculations(15);
+    border-left: 1px solid $deep-gray;
+    opacity: .5;
+  }
+  &::before {
+    top: 0;
+    bottom: 50%;
+    transform: skewX(35deg);
+  }
+  &::after {
+    top: 50%;
+    bottom: 0;
+    transform: skewX(-35deg);
+  }
+}
+
+@mixin left-arrow($size: $spacer, $borderSize: $border-size-md, $color: $black) {
+  @include arrow($size, $borderSize, $color);
+
+  &::after {
+    -webkit-transform: rotate(-135deg);
+    transform: rotate(-135deg);
+  }
+}
+
+// Plus minus icon
+@mixin plus-minus-icon {
+  position: relative;
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: px2calculations(19);
+    display: block;
+    width: px2calculations(19);
+    height: px2calculations(2);
+    margin: auto;
+    background: $deep-gray;
+    transform: translateY(-50%);
+  }
+  &::before {
+    transform: translateY(-50%) rotate(0);
+  }
+  &::after {
+    transform: translateY(-50%) rotate(90deg);
+    transition: .2s;
+  }
+  &.open::after {
+    background: $deep-gray;
+    transform: translateY(-50%) rotate(0);
+    transition: .2s;
+  }
+  &.open {
+    border-bottom: none;
+  }
+}
+
+// Close icon
+@mixin close-icon($color: $black) {
+  position: relative;
+  &::before,
+  &::after {
+    position: absolute;
+    content: "";
+    width: px2calculations(10);
+    height: 1px;
+    background-color: $color;
+  }
+  &::before {
+    transform: rotate(0deg);
+  }
+  &::before {
+    transform: rotate(45deg);
+  }
+  &::after {
+    transform: rotate(-90deg);
+  }
+  &::after {
+    transform: rotate(-45deg);
+  }
+}
+
+// Vertical bar
+@mixin vertical-bar {
+  position: relative;
+  &::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: auto;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    width: 1px;
+    height: px2calculations(15);
+    background-color: $deep-gray;
+  }
+}
+
+// Colon
+@mixin colon {
+  position: relative;
+  &::after {
+    content: ":";
+    position: absolute;
+    right: 0;
+  }
+}
+
+// Bar
+@mixin bar-item {
+  display: inline-block;
+  width: px2calculations(30);
+  height: 2px;
+  background-color: $theme-line-color;
+  transition: all .3s;
+  &::before {
+    top: 8px;
+  }
+  &::after {
+    top: -8px;
+  }
+}
+
+@mixin bar {
+  @include bar-item;
+
+  position: relative;
+  top: -8px;
+  &::before,
+  &::after {
+    @include bar-item;
+
+    content: "";
+    display: block;
+    pointer-events: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+  }
+
+  .active & {
+    background-color: transparent;
+    &::before,
+    &::after {
+      top: 0;
+    }
+    &::before {
+      transform: rotate(45deg);
+    }
+    &::after {
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+@mixin triangle {
+  position: relative;
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    font-size: 0;
+    width: 0;
+    height: 0;
+    border-width: px2calculations(6.5);
+    border-style: solid;
+    transition: all .3s;
+  }
+}
+
+@mixin triangle-arrow-down {
+  @include triangle;
+
+  &::after {
+    border-color: $theme-border-secondary-color transparent transparent transparent;
+  }
+}
+
+@mixin triangle-arrow-top {
+  @include triangle;
+
+  &::after {
+    bottom: px2calculations(13);
+    border-color: transparent transparent $theme-border-secondary-color transparent;
+  }
+}

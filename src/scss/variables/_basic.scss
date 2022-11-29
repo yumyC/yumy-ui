@@ -1,0 +1,71 @@
+// Prefix for :root CSS variables
+
+$variable-prefix: bs- !default;
+
+// Space
+// Spacer-variables-maps
+$spacer: 5;
+$spacing-size-groups: (
+  $spacer * 0: $spacer * 0,
+  $spacer * .6: $spacer * .6,
+  $spacer * 1: $spacer * 1,
+  $spacer * 2: $spacer * 2,
+  $spacer * 3: $spacer * 3,
+  $spacer * 4: $spacer * 4,
+  $spacer * 5: $spacer * 5,
+  $spacer * 6: $spacer * 6,
+  $spacer * 7: $spacer * 7,
+  $spacer * 8: $spacer * 8,
+  $spacer * 9: $spacer * 9,
+  $spacer * 10: $spacer * 10,
+  $spacer * 11: $spacer * 11,
+  $spacer * 12: $spacer * 12,
+  $spacer * 13: $spacer * 13,
+  $spacer * 14: $spacer * 14,
+  $spacer * 15: $spacer * 15,
+  $spacer * 16: $spacer * 16,
+  $spacer * 17: $spacer * 17,
+  $spacer * 18: $spacer * 18,
+  $spacer * 20: $spacer * 20,
+  $spacer * 22: $spacer * 22,
+  $spacer * 23: $spacer * 23,
+);
+
+// Base font
+$font-size-root: 16;
+
+// linelip
+// linelip-variables-maps
+$linelip-size-groups: (
+  1: 1,
+  2: 2,
+  3: 3,
+  4: 4,
+  5: 5,
+);
+
+// Spacer-common
+$common-padding-x-sm-xs: $spacer * 2;
+$common-padding-x-sm: 13.5;
+$common-padding-x: $spacer * 4;
+
+// Spacer-module
+$paragraph-margin-bottom-xs: $spacer * 4;
+$paragraph-margin-bottom-sm-for-anchor: $spacer * 8;
+$paragraph-margin-bottom-sm: $spacer * 8;
+$paragraph-margin-bottom: $spacer * 16;
+$paragraph-margin-bottom-lg: $paragraph-margin-bottom * 2;
+
+// Border
+$border-size-sm: 1;
+$border-size-md: 2;
+
+// Unit
+$unit-map: (
+  "px": 1px,
+  "rem": 1rem,
+  "em": 1em,
+  "vw": 100vw,
+  "vh": 100vh,
+  "%": 100%
+);

@@ -1,0 +1,43 @@
+@mixin input {
+  margin: 0;
+  border-radius: 0;
+  border: 1px solid $medium-gray;
+  background-color: $white;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+
+  &:focus {
+    outline: 0;
+  }
+
+  &::-webkit-input-placeholder {
+    color: $medium-gray;
+  }
+}
+
+@mixin input-primary {
+  @include input;
+
+  padding: px2calculations(15) px2calculations(10);
+  height: px2calculations(50);
+  border: 1px solid $theme-border-color;
+  box-sizing: border-box;
+
+  &:focus {
+    border-color: $theme-border-color;
+  }
+
+  &:focus-visible {
+    outline: 0;
+  }
+}
+
+@mixin input-secondary {
+  @include input;
+
+  min-height: px2calculations(40);
+  padding: px2calculations(5.5) px2calculations(15);
+  border: 1px solid $theme-border-color;
+  background-color: $white;
+}
