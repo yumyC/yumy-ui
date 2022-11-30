@@ -5,8 +5,7 @@ const exeSetSize = () => {
   const onResizing = () => {
     setSizes();
   };
-  window.onresize = onResizing;
-  window.onload = onResizing;
+  window.onresize = window.onload = onResizing;
   debounce(onResizing);
 };
 
