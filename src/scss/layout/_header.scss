@@ -8,7 +8,7 @@
   border-bottom: 1px solid $theme-primary-color;
 }
 .header-container {
-  padding-top: px2calculations(22);
+  padding: px2calculations(22);
   background-color: $white;
 
   @include tablet-below {

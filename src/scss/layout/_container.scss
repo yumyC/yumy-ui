@@ -8,9 +8,9 @@ body {
   @include set-container($gutter: 0);
 
   padding-top: (var(--header-height));
-  margin-bottom: px2calculations($paragraph-margin-bottom);
+  padding-bottom: px2calculations($paragraph-margin-bottom);
 
   @include mobile {
-    margin-bottom: px2calculations(60);
+    padding-bottom: px2calculations(60);
   }
 }

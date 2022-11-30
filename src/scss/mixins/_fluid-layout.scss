@@ -1,5 +1,5 @@
 // Flex layout
-@mixin flex-layout($direction: row, $horizontal-layout: center, $portrait-layout: center) {
+@mixin flex-layout($direction: row, $horizontal-layout: flex-start, $portrait-layout: initial, $is-wrap: nowrap) {
   display: flex;
   flex-wrap: wrap;
   flex-direction: $direction;
@@ -10,9 +10,6 @@
   } @else if $direction == "column" {
     justify-content: $portrait-layout;
     align-items: $horizontal-layout;
-
-    @include mobile {
-      flex-wrap: nowrap;
-    }
+    flex-wrap: $is-wrap;
   }
 }

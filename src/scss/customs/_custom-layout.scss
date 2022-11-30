@@ -4,6 +4,7 @@
   @include flex-layout(column, center, flex-start);
 
   height: 100%;
+  background-color: $white;
 }
 
 .position-relative {

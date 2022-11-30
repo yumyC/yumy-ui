@@ -45,8 +45,16 @@
 }
 
 @mixin portrait-card-primary {
+  @include flex-layout(column, initial);
+
   width: 100%;
   height: 100%;
+
+  > a {
+    height: 100%;
+
+    @include flex-layout(column, initial);
+  }
   > *:not(a),
   > a > * {
     &:first-child {
@@ -65,6 +73,7 @@
         border-left: 2px solid $theme-border-color;
         border-right: 2px solid $theme-border-color;
         border-bottom: 2px solid $theme-border-color;
+        flex: 1;
 
         > *:not(:last-child) {
           margin-bottom: px2calculations(10);
@@ -78,6 +87,28 @@
 
 @mixin stack-card-primary {
   display: inline-grid;
+
+  *:first-child {
+    z-index: 2;
+    grid-area: 1/1/3/2;
+
+    + * {
+      grid-area: 2/1/4/4;
+      padding-left: fluid-val(200);
+      padding-right: fluid-val(20);
+      border: 2px solid $theme-border-color;
+    }
+  }
+
+  &.right {
+    *:first-child {
+      grid-area: 1/3/3/4;
+      + * {
+        padding-left: fluid-val(20);
+        padding-right: fluid-val(200);
+      }
+    }
+  }
 }
 
 @mixin card-hover {

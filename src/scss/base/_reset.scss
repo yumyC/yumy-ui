@@ -22,7 +22,9 @@ html {
 }
 
 body {
-  background: $white;
+  @include flex-layout(column, initial, initial);
+
+  background: $bg-light-color;
   word-break: break-word;
   -webkit-print-color-adjust: exact;
   -moz-print-color-adjust: exact;

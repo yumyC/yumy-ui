@@ -1,6 +1,8 @@
 // Footer
 .footer-wrapper {
   margin-top: auto;
+  padding: px2calculations(22);
+  border-top: 1px solid $theme-primary-color;
   .region {
     @include set-container;
   }
