@@ -1,12 +1,7 @@
 // Container
 html,
-body,
-.dialog-off-canvas-main-canvas {
+body {
   height: 100%;
-}
-
-.dialog-off-canvas-main-canvas {
-  @include flex-column;
 }
 
 .page-container {
@@ -18,7 +13,4 @@ body,
   @include mobile {
     margin-bottom: px2calculations(60);
   }
-}
-.toolbar-oriented .toolbar-bar {
-  position: fixed;
 }

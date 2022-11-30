@@ -3,24 +3,22 @@
 // Grid system
 // Generate semantic grid columns with these mixins.
 
-@mixin make-row($gutter: $grid-gutter-width) {
-  --#{$variable-prefix}gutter-x: #{$gutter};
-  --#{$variable-prefix}gutter-y: 0;
+@mixin make-row($gutter-x: $grid-gutter-width, $gutter-y: $grid-gutter-width) {
+  @include flex-layout;
 
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: calc(var(--#{$variable-prefix}gutter-y) * -1); // stylelint-disable-line function-disallowed-list
-  margin-right: calc(#{fluid-val($gutter)} * -.5); // stylelint-disable-line function-disallowed-list
-  margin-left: calc(#{fluid-val($gutter)} * -.5); // stylelint-disable-line function-disallowed-list
+  margin-top: calc(#{fluid-val($gutter-y)} * -1);
+  margin-right: calc(#{fluid-val($gutter-x)} * -.5);
+  margin-left: calc(#{fluid-val($gutter-x)} * -.5);
+  overflow-x: hidden;
 }
 
-@mixin make-col-ready($gutter: $grid-gutter-width) {
+@mixin make-col-ready($gutter-x: $grid-gutter-width, $gutter-y: $grid-gutter-width) {
   flex-shrink: 0;
   width: 100%;
   max-width: 100%; // Prevent `.col-auto`, `.col` (& responsive variants) from breaking out the grid
-  padding-right: calc(#{fluid-val($gutter)} * .5); // stylelint-disable-line function-disallowed-list
-  padding-left: calc(#{fluid-val($gutter)} * .5); // stylelint-disable-line function-disallowed-list
-  margin-top: var(--#{$variable-prefix}gutter-y);
+  padding-right: calc(#{fluid-val($gutter-x)} * .5);
+  padding-left: calc(#{fluid-val($gutter-x)} * .5);
+  margin-top: fluid-val($gutter-y);
 }
 
 @mixin make-col($size: false, $columns: $grid-columns) {
@@ -91,15 +89,6 @@
               @include make-col-offset($i, $columns);
             }
           }
-        }
-      }
-
-      // Gutters
-      // Make use of `.g-*`, `.gx-*` or `.gy-*` utilities to change spacing between the columns.
-      @each $key, $value in $gutters {
-        .g#{$infix}-#{$key},
-        .gy#{$infix}-#{$key} {
-          --#{$variable-prefix}gutter-y: #{$value};
         }
       }
     }

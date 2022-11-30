@@ -13,11 +13,11 @@
   .c-mb#{$key} {
     margin-bottom: #{$value}px !important;
   }
-  .c-m-x#{$key} {
+  .c-mx#{$key} {
     margin-left: #{$value}px !important;
     margin-right: #{$value}px !important;
   }
-  .c-m-y#{$key} {
+  .c-my#{$key} {
     margin-top: #{$value}px !important;
     margin-bottom: #{$value}px !important;
   }
@@ -35,11 +35,11 @@
   .c-pb#{$key} {
     padding-bottom: #{$value}px !important;
   }
-  .c-p-x#{$key} {
+  .c-px#{$key} {
     padding-left: #{$value}px !important;
     padding-right: #{$value}px !important;
   }
-  .c-p-y#{$key} {
+  .c-py#{$key} {
     padding-top: #{$value}px !important;
     padding-bottom: #{$value}px !important;
   }

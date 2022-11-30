@@ -1,0 +1,146 @@
+.dialog-off-canvas-main-canvas {
+  @include flex-layout(column", "center", "flex-start);
+}
+.toolbar-oriented .toolbar-bar {
+  position: fixed;
+}
+
+// Reset layout-builder
+.layout {
+  *:last-child:not(:first-child) {
+    margin-bottom: 0;
+  }
+
+  &.layout--onecol:not(.fullScreen) .layout__region > *.block {
+    &:not([class*="banner--banner"], .block-quicktabs) {
+      @include set-container($max-width: $content-width);
+    }
+  }
+}
+.layout-builder {
+  border-color: $theme-line-color;
+}
+.layout-builder__region {
+  outline-color: $theme-line-color;
+}
+.layout-builder__add-section {
+  background-color: $bg-color;
+  outline-color: $light-gray;
+}
+.layout-builder__add-block {
+  background-color: $theme-secondary-color;
+}
+.layout-builder__layout {
+  .layout-custom-basic-container {
+    border-left: 3px solid $theme-line-color;
+    border-right: 3px solid $theme-line-color;
+  }
+  .layout-custom-basic-content {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+.block {
+  position: relative;
+}
+
+// Ui dialog
+.ui-dialog {
+  .ui-dialog-titlebar,
+  .ui-dialog-buttonpane {
+    background-color: $bg-color;
+  }
+
+  table {
+    width: 100%;
+    th {
+      padding: px2calculations(10);
+      text-align: left;
+      background-color: $bg-color;
+      border-top: 1px solid $theme-line-color;
+      border-bottom: 1px solid $theme-line-color;
+    }
+    tr td {
+      border: none;
+    }
+  }
+  .form-text {
+    width: 100%;
+  }
+  a.tabledrag-handle .handle {
+    width: auto;
+    height: auto;
+    background-position: center;
+  }
+  .form--inline.clearfix {
+    @include flex-layout($portrait-layout: "flex-end");
+
+    input {
+      width: auto;
+    }
+    [data-drupal-selector="edit-actions"] {
+      display: flex;
+      align-self: center;
+    }
+  }
+  .media-library-views-form .media-library-item {
+    width: 25%;
+    max-width: 25%;
+    padding: 20px;
+    margin: 0;
+    border: 1px solid $white;
+    background-color: $bg-color;
+  }
+  .js-media-library-item {
+    .views-field.views-field-rendered-entity.js-click-to-select-trigger {
+      @include flex-layout;
+
+      height: 100%;
+
+      article {
+        @include flex-layout(column", "flex-end);
+
+        height: calc(100% - 40px);
+      }
+    }
+  }
+  .pager {
+    margin-top: px2calculations(20);
+  }
+}
+
+// Node
+.node--unpublished {
+  background-color: $white;
+}
+.node-preview-container {
+  background-color: $white;
+  border-bottom: 1px solid $dark-green;
+  z-index: 502;
+
+  .form-type-select {
+    margin-left: px2calculations($common-padding-x);
+  }
+
+  + div + .dialog-off-canvas-main-canvas {
+    .com-header {
+      padding-top: var(--header-position-top);
+    }
+  }
+}
+
+// Cke
+.cke_widget_wrapper {
+  &.cke_widget_selected,
+  &:hover,
+  &.cke_widget_focused > .cke_widget_element,
+  &:hover > .cke_widget_element {
+    outline: none;
+    box-shadow: 0 0 0 2px $theme-line-color;
+  }
+}
+
+// Media
+drupal-media[data-align="center"] {
+  justify-content: center;
+}

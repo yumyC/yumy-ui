@@ -1,0 +1,9 @@
+.horizontal-card {
+  @include horizontal-card-primary;
+}
+.portrait-card {
+  @include portrait-card-primary;
+}
+.stack-card {
+  @include stack-card-primary;
+}

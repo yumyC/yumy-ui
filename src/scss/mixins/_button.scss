@@ -2,24 +2,13 @@
   display: inline-block;
   width: auto;
   height: auto;
-  padding: fluid-val(15);
+  padding: px2calculations(16, $convertUnit: "em");
+  font-size: px2calculations(16, $convertUnit: "em");
   border: 0;
   border-radius: 0;
   background-image: none;
   transition: all .5s;
   cursor: pointer;
-
-  @include pc-only {
-    font-size: px2calculations(15);
-  }
-
-  @include tablet-only {
-    font-size: fluid-val(15);
-  }
-
-  @include mobile {
-    font-size: fluid-val(12, $max-width: 375);
-  }
 }
 
 @mixin btn-arrow($color: $white) {
@@ -37,14 +26,6 @@
   @include mobile {
     max-width: px2calculations(280);
     padding: px2calculations(19) px2calculations(30);
-  }
-}
-
-@mixin btn-width($width) {
-  min-width: px2calculations($width);
-
-  @include mobile {
-    min-width: px2calculations(280);
   }
 }
 
@@ -89,23 +70,13 @@
 @mixin btn-secondary {
   @include btn;
 
-  color: $black;
-  width: auto;
+  color: $white;
   background-color: $theme-secondary-color;
 
   @include btn-hover-primary(
     $color: $black,
-    $hover-bg-color: $theme-secondary-color,
-    $hover-color: $black
-  ) {
-    &:hover {
-      box-shadow: none;
-    }
-  }
-
-  @include mobile {
-    color: $black;
-  }
+    $hover-color: $theme-secondary-color
+  );
 }
 
 @mixin btn-icon {

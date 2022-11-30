@@ -13,6 +13,7 @@
     "selector-type-no-unknown": null,
     "scss/no-global-function-names": null,
     "function-calc-no-unspaced-operator": null,
+    "declaration-block-no-redundant-longhand-properties": null,
     "no-unknown-animations": true,
     "media-feature-name-no-unknown": [true, {
       "ignoreMediaFeatureNames": [

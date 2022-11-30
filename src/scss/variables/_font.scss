@@ -1,0 +1,22 @@
+// Base font
+$font-size-root: 16;
+
+// Unit
+$unit-map: (
+  "px": 1px,
+  "rem": 1rem,
+  "em": 1em,
+  "vw": 100vw,
+  "vh": 100vh,
+  "%": 100%
+);
+
+// linelip
+// linelip-variables-maps
+$linelip-size-groups: (
+  1: 1,
+  2: 2,
+  3: 3,
+  4: 4,
+  5: 5,
+);

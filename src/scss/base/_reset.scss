@@ -9,79 +9,8 @@
   -webkit-tap-highlight-color: transparent;
   margin: 0;
   padding: 0;
-}
-
-html,
-body,
-div,
-span,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-abbr,
-address,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-samp,
-small,
-strong,
-var,
-b,
-i,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section,
-summary,
-time,
-mark,
-audio,
-video {
-  margin: 0;
-  padding: 0;
   border: 0;
   outline: 0;
-  font-size: 100%;
   vertical-align: baseline;
   background: transparent;
 }
@@ -101,17 +30,16 @@ body {
   print-color-adjust: exact;
 }
 
-sub,
-sup {
-  font-size: math.div(17, 21);
+html,
+body {
+  height: 100%;
 }
 
-pre {
-  white-space: break-spaces;
+.visually-hidden {
+  visibility: hidden;
 }
 
-.visually-hidden,
-.news-release-label {
+.hide {
   display: none;
 }
 
@@ -122,172 +50,15 @@ time {
   font-weight: bold;
 }
 
-// Reset layout-builder
-.layout {
-  *:last-child:not(:first-child) {
-    margin-bottom: 0;
-  }
-  .layout__region > * {
-    &:not(:last-child) {
-      margin-bottom: px2calculations($paragraph-margin-bottom-sm);
-    }
-
-    &.block--view-mode-banner-display-right,
-    &.block--view-mode-banner-display-left {
-      margin-bottom: px2calculations($paragraph-margin-bottom);
-
-      @include mobile {
-        margin-bottom: px2calculations(60);
-      }
-
-      + .block--view-mode-full {
-        @include mobile {
-          margin-top: 0;
-        }
-      }
-
-      @include mobile {
-        margin-bottom: px2calculations(60);
-
-        &.block-carousel {
-          margin-bottom: 0;
-        }
-      }
-    }
-  }
-
-  &.layout--onecol:not(.fullScreen) .layout__region > *.block {
-    &:not([class*="banner--banner"], .block-quicktabs) {
-      @include set-container($max-width: $content-width);
-
-      &.block-views-blocknews-block-news-in-news-events,
-      &.block-views-blockevents-block-events-in-news-events,
-      &.block-views-blocksearch-search-for-news,
-      &.block-views-blocksearch-search-for-events,
-      &.block-facet-blocknews-year-filter,
-      &.block-facet-blockevents-year-filter {
-        @include set-container($max-width: $base-page-content-width);
-      }
-
-      @include mobile {
-        .row {
-          padding-left: 0;
-          padding-right: 0;
-        }
-      }
-    }
-  }
-}
-.layout-region-custom-anchor-list {
-  .layout.layout--onecol .layout__region > *.block {
-    @include mobile {
-      padding-left: 0;
-      padding-right: 0;
-    }
-  }
-}
-.layout,
-.layout__region {
-  margin-top: 0;
-  margin-bottom: px2calculations($paragraph-margin-bottom);
-
-  @include mobile {
-    margin-bottom: px2calculations(60);
-  }
-}
-.layout-builder {
-  padding: 0;
-  border-color: $theme-line-color;
-  .layout-builder-block {
-    padding: 0;
-  }
-}
-.layout-builder__region {
-  outline-color: $theme-line-color;
-}
-.layout-builder__add-section {
-  background-color: $bg-color;
-  outline-color: $medium-gray;
-}
-.layout-builder__add-block {
-  margin-top: px2calculations($paragraph-margin-bottom-sm);
-  background-color: $theme-secondary-color;
-}
-.layout-builder__layout {
-  .layout-custom-basic-container {
-    border-left: 3px solid $theme-line-color;
-    border-right: 3px solid $theme-line-color;
-  }
-  .layout-custom-basic-content {
-    margin-left: 0;
-    margin-right: 0;
-  }
-}
-
-.fullScreen.bg-deep-gray,
-.fullScreen.bg-gray,
-.fullScreen.bg-dark-green,
-.fullScreen.bg-light-green {
-  &.layout {
-    padding: px2calculations($paragraph-margin-bottom) px2calculations($common-padding-x);
-    margin-bottom: 0;
-
-    + .layout:not(.fullScreen) {
-      margin-top: px2calculations(80);
-
-      @include mobile {
-        margin-top: px2calculations(60);
-      }
-    }
-
-    @include mobile {
-      padding: px2calculations(60) 0;
-    }
-  }
-}
-.block-local-tasks-block {
-  margin-bottom: px2calculations($paragraph-margin-bottom-sm);
-}
-.path-admin {
-  .active-top .category-list,
-  .active-bottom .category-list {
-    position: unset;
-  }
-}
-
-.display_flex_column {
-  .layout__region {
-    @include flex-column;
-  }
-}
-.block {
-  position: relative;
-}
-
-form {
-  @include tablet-below {
-    @include common-padding-x;
-  }
-}
-.form-wrapper {
-  margin-top: 0;
-  margin-bottom: px2calculations(10);
-}
-
-.node--unpublished {
-  background-color: $white;
-}
-
 // Reset margins
+*:first-child {
+  margin-top: 0;
+}
 *:last-child {
   margin-bottom: 0;
 }
 
-*:first-child {
-  margin-top: 0;
-}
-
-// Reset
+// Reset link
 .dialog-off-canvas-main-canvas,
 body.cke_editable {
   a,
@@ -346,20 +117,22 @@ a.ext {
     }
   }
 }
-.underline {
-  text-decoration: $link-hover-decoration;
-}
 
 // Reset Image
 img,
 svg {
   @include img-fluid;
 }
-
 picture {
   width: 100%;
   source {
     height: 0;
+  }
+}
+.align-center {
+  img {
+    display: block;
+    margin: auto;
   }
 }
 
@@ -394,7 +167,7 @@ ol {
   }
 
   li {
-    color: $deep-gray-10;
+    color: $deep-gray;
   }
 
   .item-list & {
@@ -465,162 +238,10 @@ input[type="radio"] {
     margin-right: px2calculations(30);
   }
 }
-
 input[type="radio"] {
   border: none;
 
   .search-box & {
     margin-bottom: px2calculations(20);
-  }
-}
-
-// Dialog
-.ui-dialog {
-  .ui-dialog-titlebar,
-  .ui-dialog-buttonpane {
-    background-color: $bg-color;
-  }
-
-  table {
-    width: 100%;
-    th {
-      padding: px2calculations(10);
-      text-align: left;
-      background-color: $bg-color;
-      border-top: 1px solid $theme-line-color;
-      border-bottom: 1px solid $theme-line-color;
-    }
-    tr td {
-      border: none;
-    }
-  }
-  .form-text {
-    width: 100%;
-  }
-  a.tabledrag-handle .handle {
-    width: auto;
-    height: auto;
-    background-position: center;
-  }
-  .form--inline.clearfix {
-    display: flex;
-    align-items: flex-end;
-    input {
-      width: auto;
-    }
-    [data-drupal-selector="edit-actions"] {
-      display: flex;
-      align-self: center;
-    }
-  }
-  .media-library-views-form .media-library-item {
-    width: 25%;
-    max-width: 25%;
-    padding: 20px;
-    margin: 0;
-    border: 1px solid $white;
-    background-color: $bg-color;
-  }
-  .js-media-library-item {
-    .views-field.views-field-rendered-entity.js-click-to-select-trigger {
-      display: flex;
-      justify-content: center;
-      height: 100%;
-
-      article {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        align-items: center;
-        height: calc(100% - 40px);
-      }
-    }
-  }
-  .pager {
-    margin-top: px2calculations(20);
-  }
-}
-
-// media
-.align-center {
-  img {
-    display: block;
-    margin: auto;
-  }
-}
-drupal-media[data-align="center"] {
-  justify-content: center;
-}
-.dialog-off-canvas-main-canvas .field--name-field-image {
-  @include flex-row-centered-horizontally;
-
-  .field__item,
-  .field__item *:not(.contextual-links) {
-
-    &:not(.contextual) {
-      display: block;
-      height: 100%;
-      width: 100%;
-      overflow: hidden;
-    }
-  }
-
-  @include mobile {
-    display: block;
-    width: 100%;
-    img {
-      width: 100%;
-    }
-  }
-}
-.field--name-field-illustration-image {
-  *:not(.contextual-links) {
-    &:not(.contextual) {
-      display: block;
-      height: 100%;
-      width: 100%;
-    }
-  }
-}
-
-// Preview
-.node-preview-container {
-  background-color: $white;
-  border-bottom: 1px solid $terumo-deep-green;
-  z-index: 502;
-
-  .form-type-select {
-    margin-left: px2calculations($common-padding-x);
-  }
-
-  + div + .dialog-off-canvas-main-canvas {
-    .com-header {
-      padding-top: var(--header-position-top);
-    }
-  }
-}
-
-.cke_widget_wrapper {
-  &.cke_widget_selected,
-  &:hover,
-  &.cke_widget_focused > .cke_widget_element,
-  &:hover > .cke_widget_element {
-    outline: none;
-    box-shadow: 0 0 0 2px $theme-line-color;
-  }
-}
-
-// Reset scroll
-@include tablet-below {
-  .scroll-x-box {
-    scrollbar-width: px2calculations(5);
-    scrollbar-color: $bg-light-color;
-    &::-webkit-scrollbar {
-      width: px2calculations(5);
-      background: $bg-light-color;
-    }
-    &::-webkit-scrollbar-thumb {
-      background: $medium-gray-10;
-    }
   }
 }

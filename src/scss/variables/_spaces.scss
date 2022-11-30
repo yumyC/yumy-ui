@@ -1,7 +1,3 @@
-// Prefix for :root CSS variables
-
-$variable-prefix: bs- !default;
-
 // Space
 // Spacer-variables-maps
 $spacer: 5;
@@ -31,41 +27,13 @@ $spacing-size-groups: (
   $spacer * 23: $spacer * 23,
 );
 
-// Base font
-$font-size-root: 16;
-
-// linelip
-// linelip-variables-maps
-$linelip-size-groups: (
-  1: 1,
-  2: 2,
-  3: 3,
-  4: 4,
-  5: 5,
-);
-
 // Spacer-common
-$common-padding-x-sm-xs: $spacer * 2;
-$common-padding-x-sm: 13.5;
-$common-padding-x: $spacer * 4;
+$common-padding-x: map-get($spacing-size-groups, 20);
 
 // Spacer-module
-$paragraph-margin-bottom-xs: $spacer * 4;
-$paragraph-margin-bottom-sm-for-anchor: $spacer * 8;
-$paragraph-margin-bottom-sm: $spacer * 8;
-$paragraph-margin-bottom: $spacer * 16;
-$paragraph-margin-bottom-lg: $paragraph-margin-bottom * 2;
+$paragraph-margin-bottom-sm: map-get($spacing-size-groups, 40);
+$paragraph-margin-bottom: map-get($spacing-size-groups, 80);
 
 // Border
 $border-size-sm: 1;
 $border-size-md: 2;
-
-// Unit
-$unit-map: (
-  "px": 1px,
-  "rem": 1rem,
-  "em": 1em,
-  "vw": 100vw,
-  "vh": 100vh,
-  "%": 100%
-);
