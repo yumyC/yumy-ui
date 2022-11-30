@@ -64,9 +64,12 @@
 
 // rem + vw
 @function fluid-val($rootSize: $font-size-root, $min-width: 10, $max-width: 1200, $fluidConvertUnit: "rem") {
-  $value: $min-width - $rootSize;
+  $value: if($rootSize >= 0, $min-width - $rootSize, abs($rootSize) - $min-width);
   $extra-vw: math.div(abs($value), $max-width) * map-get($unit-map, "vw");
-  $res: calc(#{px2calculations($min-width, $convertUnit: $fluidConvertUnit)} #{if($value < 0, "+", "-")} #{$extra-vw});
+  $res: calc(
+    #{px2calculations(if($rootSize >= 0, $min-width, -$min-width), $convertUnit: $fluidConvertUnit)}
+    #{if($value < 0, "+", "-")} #{$extra-vw}
+  );
 
   @return $res;
 }

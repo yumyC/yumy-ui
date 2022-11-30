@@ -97,6 +97,10 @@
       padding-left: fluid-val(200);
       padding-right: fluid-val(20);
       border: 2px solid $theme-border-color;
+
+      @include pc-only {
+        padding-left: px2calculations(200);
+      }
     }
   }
 
@@ -106,6 +110,10 @@
       + * {
         padding-left: fluid-val(20);
         padding-right: fluid-val(200);
+
+        @include pc-only {
+          padding-right: px2calculations(200);
+        }
       }
     }
   }

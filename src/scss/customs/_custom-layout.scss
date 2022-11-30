@@ -24,5 +24,14 @@
     }
   }
 }
+.column {
+  @include flex-layout(column);
+
+  margin-bottom: fluid-val(-20);
+
+  > * {
+    margin-bottom: fluid-val(20);
+  }
+}
 
 @include make-grid-columns;
