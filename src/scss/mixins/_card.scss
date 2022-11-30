@@ -32,7 +32,9 @@
       }
 
       + div {
-        @include flex-layout(column, flex-start);
+        @include flex-layout(column, initial, center);
+
+        flex: 1;
 
         > *:not(:last-child) {
           margin-bottom: px2calculations(10);
