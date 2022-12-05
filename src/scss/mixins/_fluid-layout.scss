@@ -3,8 +3,6 @@
 // Flex layout
 @mixin flex-layout($direction: row, $horizontal-layout: flex-start, $portrait-layout: initial, $is-wrap: nowrap) {
   display: flex;
-  width: 100%;
-  max-width: 100%;
   flex-wrap: wrap;
   flex-direction: $direction;
 

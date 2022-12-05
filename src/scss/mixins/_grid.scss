@@ -9,6 +9,8 @@
   margin-top: calc(#{fluid-val($gutter-y)} * -1);
   margin-right: calc(#{fluid-val($gutter-x)} * -.5);
   margin-left: calc(#{fluid-val($gutter-x)} * -.5);
+  width: 100%;
+  max-width: 100%;
 }
 
 @mixin make-col-ready($gutter-x: $grid-gutter-width, $gutter-y: $grid-gutter-width) {
