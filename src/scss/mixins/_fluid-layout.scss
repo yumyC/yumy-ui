@@ -1,3 +1,5 @@
+@use "sass:math";
+
 // Flex layout
 @mixin flex-layout($direction: row, $horizontal-layout: flex-start, $portrait-layout: initial, $is-wrap: nowrap) {
   display: flex;
@@ -11,5 +13,24 @@
     justify-content: $portrait-layout;
     align-items: $horizontal-layout;
     flex-wrap: $is-wrap;
+  }
+}
+
+// Render the corresponding css style
+@mixin fluidder($values, $property: font-size) {
+  @if $values {
+    $val-desktop: fluid-val($values);
+    $val-origin: px2calculations($values);
+    $val-space-origin: px2calculations($values, $font-size-root);
+
+    #{$property}: $val-origin;
+
+    @include tablet-up {
+      #{$property}: $val-desktop;
+    }
+
+    @include mobile {
+      #{$property}: $val-space-origin;
+    }
   }
 }

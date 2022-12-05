@@ -58,18 +58,37 @@
 @function px2calculations($dividend, $divisor: $font-size-root, $convertUnit: "rem") {
   $map-unit-val: map-get($unit-map, $convertUnit);
   $map-unit-val: if($map-unit-val and $map-unit-val > 0, $map-unit-val, 0);
+  $res: "";
 
-  @return math.div($dividend, $divisor) * $map-unit-val;
+  @each $item in $dividend {
+    @if $item == 0 {
+      $res: $res + " 0";
+    } @else {
+      $res: $res + " " + math.div($item, $divisor) * $map-unit-val;
+    }
+  }
+
+  // Remove first space
+  @return unquote(str-slice($res, 2));
 }
 
 // rem + vw
-@function fluid-val($rootSize: $font-size-root, $min-width: 10, $max-width: 1200, $fluidConvertUnit: "rem") {
-  $value: if($rootSize >= 0, $min-width - $rootSize, abs($rootSize) - $min-width);
-  $extra-vw: math.div(abs($value), $max-width) * map-get($unit-map, "vw");
-  $res: calc(
-    #{px2calculations(if($rootSize >= 0, $min-width, -$min-width), $convertUnit: $fluidConvertUnit)}
-    #{if($value < 0, "+", "-")} #{$extra-vw}
-  );
+@function fluid-val($rootSize: $font-size-root, $max-width: 1400, $fluidConvertUnit: "rem") {
+  $res: "";
 
-  @return $res;
+  @each $item in $rootSize {
+    @if $item == 0 {
+      $res: $res + " 0";
+    } @else {
+      $min-width: math.div($item, 14);
+      $value: $item - $min-width;
+      $extra-vw: math.div(abs($value), $max-width) * map-get($unit-map, "vw");
+      $res: $res + " " + calc(
+        #{px2calculations(if($item >= 0, $min-width, -$min-width), $convertUnit: $fluidConvertUnit)} + #{$extra-vw}
+      );
+    }
+  }
+
+  // Remove first space
+  @return unquote(str-slice($res, 2));
 }

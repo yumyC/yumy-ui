@@ -1,18 +1,6 @@
 @mixin horizontal-card-primary {
   height: 100%;
   box-shadow: inset 0 0 0 2px $theme-border-color;
-
-  // @include pc-only {
-  //   font-size: px2calculations(18);
-  // }
-
-  // @include tablet-only {
-  //   font-size: fluid-val(18);
-  // }
-
-  // @include mobile {
-  //   font-size: fluid-val(18, $max-width: 375);
-  // }
   > *,
   & {
     display: flex;
@@ -96,13 +84,10 @@
 
     + * {
       grid-area: 2/1/4/4;
-      padding-left: fluid-val(200);
-      padding-right: fluid-val(20);
       border: 2px solid $theme-border-color;
 
-      @include pc-only {
-        padding-left: px2calculations(200);
-      }
+      @include fluidder(200, padding-left);
+      @include fluidder(20, padding-right);
     }
   }
 
@@ -110,12 +95,8 @@
     *:first-child {
       grid-area: 1/3/3/4;
       + * {
-        padding-left: fluid-val(20);
-        padding-right: fluid-val(200);
-
-        @include pc-only {
-          padding-right: px2calculations(200);
-        }
+        @include fluidder(20, padding-left);
+        @include fluidder(200, padding-right);
       }
     }
   }
