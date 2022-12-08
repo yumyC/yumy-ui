@@ -1,2 +1,2 @@
 require('./js/main');
-require('./scss/yumyUI.scss');
+require('./scss/style.scss');

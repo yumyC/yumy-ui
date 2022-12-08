@@ -1,2 +1,2 @@
-# yumy-ui
-yumy-ui
+# yumyUI
+yumyUI
