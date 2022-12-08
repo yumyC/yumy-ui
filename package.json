@@ -1,5 +1,5 @@
 {
-  "name": "yumy-ui",
+  "name": "yumyUI",
   "version": "1.0.0",
   "description": "UI framework",
   "main": "dist/js/yumyUI.js",
