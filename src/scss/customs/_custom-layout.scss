@@ -27,9 +27,11 @@
 .column {
   @include flex-layout(column);
 
-  margin-bottom: fluid-val(-20);
+  &:not(:last-child) {
+    margin-bottom: fluid-val(-20);
+  }
 
-  > * {
+  > *:not(:last-child) {
     margin-bottom: fluid-val(20);
   }
 }
