@@ -115,3 +115,21 @@ export const debounce = (func, threshold = 100, execAsap = true) => {
     }
   };
 };
+
+// ajax
+export const ajaxWithPromise = (url, data = {}, type = 'GET') => {
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      type: type,
+      url: url,
+      data: data,
+      dataType: 'json',
+      success: () => {
+        resolve(data);
+      },
+      error: (err) => {
+        reject(err);
+      },
+    });
+  });
+};
