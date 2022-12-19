@@ -1,0 +1,8 @@
+// Modal
+$zindex-modal: 1050 !important;
+$zindex-modal-backdrop: 1040 !important;
+$modal-transition: transform .3s ease-out;
+$modal-show-transform: none;
+$modal-fade-transform: translateY(-50px);
+$modal-scale-transform: scale(1.02);
+$modal-backdrop-bg: rgba($black, .6);

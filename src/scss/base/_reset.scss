@@ -15,6 +15,15 @@
   background: transparent;
 }
 
+:root {
+  --banner-content-height: 400px;
+  --header-height: fluid-val(56);
+
+  @include mobile {
+    --banner-content-height: 185px;
+  }
+}
+
 html {
   font-size: #{$font-size-root}px;
   overflow-x: hidden;
@@ -22,14 +31,16 @@ html {
 }
 
 body {
-  @include flex-layout(column, initial, initial);
+  @include fluidder(7, font-size);
 
-  background: $bg-light-color;
+  font-family: "Poppins", sans-serif;
   word-break: break-word;
   -webkit-print-color-adjust: exact;
   -moz-print-color-adjust: exact;
   -ms-print-color-adjust: exact;
   print-color-adjust: exact;
+  color: $theme-font-color;
+  line-height: $line-height-normal;
 }
 
 .visually-hidden {
@@ -37,7 +48,7 @@ body {
 }
 
 .hide {
-  display: none;
+  display: none !important;
 }
 
 em,
@@ -72,7 +83,7 @@ body.cke_editable {
     }
 
     &:hover {
-      &:not(.toolbar-icon, .button, .node-preview-backlink, .use-ajax) {
+      &:not(.toolbar-icon, .btn, .node-preview-backlink, .use-ajax) {
         color: $link-hover-color;
 
         > *.field {
@@ -93,9 +104,6 @@ a[aria-label="linkedin"] {
   &:hover {
     text-decoration: none;
   }
-}
-.link-has-arrow {
-  @include link-has-arrow;
 }
 a.ext {
   &::after {
@@ -145,63 +153,37 @@ button,
 .button,
 select,
 optgroup,
-ul.menu,
-textarea {
+textarea,
+.form-item {
   margin: 0;
-  line-height: inherit;
+  line-height: normal;
 }
 
 // list
 ul,
 ol {
-  padding-left: px2calculations(20);
+  @include fluidder(6, padding-left);
 
-  &.menu {
-    list-style: none;
-    li {
-      list-style: none;
-    }
-  }
-
+  list-style: none;
   li {
-    color: $deep-gray;
+    display: flex;
+    align-items: center;
+    list-style: none;
   }
 
-  .item-list & {
-    &:not(.quicktabs-tabs) {
-      margin-top: px2calculations(20);
-      margin-bottom: px2calculations(40);
+  &:not(.contextual-links, [class*="tab"], [class*="menu"]) {
+    li {
+      &::before {
+        @include fluidder(3, width);
+        @include fluidder(3, height);
 
-      @include mobile {
-        margin-bottom: px2calculations(-10);
-      }
-      li {
-        position: relative;
-        margin: 0 0 px2calculations(10) 0;
-        padding: 0 0 0 px2calculations(20);
-        list-style: none;
-
-        &:not(:last-child) {
-          padding-bottom: px2calculations(10);
-          border-bottom: 1px solid $theme-line-color;
-        }
-
-        &::before {
-          content: "";
-          position: absolute;
-          left: 7.5px;
-          top: px2calculations(10);
-          display: inline-block;
-          width: 5px;
-          height: 5px;
-          border-radius: 50%;
-          background-color: $black;
-
-          @include mobile {
-            width: 3px;
-            height: 3px;
-          }
-        }
+        position: absolute;
+        left: 0;
+        flex: none;
+        border-radius: 50%;
+        background-color: currentColor;
+        margin-right: 6px;
+        content: "";
       }
     }
   }

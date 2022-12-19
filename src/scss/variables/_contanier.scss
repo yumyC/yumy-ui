@@ -1,7 +1,13 @@
+@use "sass:math";
+
+// Coefficient of variation
+$coefficient-of-variation: 10;
+$max-of-variation: math.div(1440, 595);
+
 // Pc Width
-$ue-width: 1400;
-$content-width: 1380;
-$base-page-content-width: 922;
+$ui-width: 595;
+$ue-width: $ui-width * $max-of-variation;
+$content-width: $ui-width * $max-of-variation;
 
 // Mobile width
-$base-mobile-width: 768;
+$base-mobile-width: 375;

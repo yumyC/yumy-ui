@@ -1,5 +1,3 @@
-@use "sass:math";
-
 // Flex layout
 @mixin flex-layout($direction: row, $horizontal-layout: flex-start, $portrait-layout: initial, $is-wrap: nowrap) {
   display: flex;
@@ -17,20 +15,39 @@
 }
 
 // Render the corresponding css style
-@mixin fluidder($values, $property: font-size) {
+@mixin fluidder($values, $property: font-size, $mobile-origin: null) {
   @if $values {
     $val-desktop: fluid-val($values);
-    $val-origin: px2calculations($values);
-    $val-space-origin: px2calculations($values, $font-size-root);
+    $val-desktop-max: px2calculations($values, $is-max: "max");
+    $val-origin: if($mobile-origin, px2calculations($mobile-origin), px2calculations($values));
 
     #{$property}: $val-origin;
+
+    @include mobile {
+      #{$property}: $val-origin;
+    }
 
     @include tablet-up {
       #{$property}: $val-desktop;
     }
 
-    @include mobile {
-      #{$property}: $val-space-origin;
+    @include max-screen-only {
+      #{$property}: $val-desktop-max;
     }
+  }
+}
+
+@mixin ch-posi {
+  &.x-flex-end {
+    justify-content: flex-end;
+  }
+  &.x-flex-start {
+    justify-content: flex-start;
+  }
+  &.x-space-between {
+    justify-content: space-between;
+  }
+  &.x-center {
+    justify-content: center;
   }
 }

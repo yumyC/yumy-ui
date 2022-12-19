@@ -1,25 +1,21 @@
 @use "sass:math";
 
 // Grid system
-// Generate semantic grid columns with these mixins.
-
-@mixin make-row($gutter-x: $grid-gutter-width, $gutter-y: $grid-gutter-width) {
+@mixin make-row($gutter-x: $grid-gutter-width, $gutter-y: $grid-gutter-y-width) {
   @include flex-layout;
+  @include fluidder(-$gutter-y, margin-top);
 
-  margin-top: calc(#{fluid-val($gutter-y)} * -1);
   margin-right: calc(#{fluid-val($gutter-x)} * -.5);
   margin-left: calc(#{fluid-val($gutter-x)} * -.5);
-  width: 100%;
-  max-width: 100%;
 }
 
-@mixin make-col-ready($gutter-x: $grid-gutter-width, $gutter-y: $grid-gutter-width) {
+@mixin make-col-ready($gutter-x: $grid-gutter-width, $gutter-y: $grid-gutter-y-width) {
+  @include fluidder($gutter-y, margin-top);
+
   flex-shrink: 0;
-  width: 100%;
-  max-width: 100%; // Prevent `.col-auto`, `.col` (& responsive variants) from breaking out the grid
-  padding-right: calc(#{fluid-val($gutter-x)} * .5);
+  max-width: 100%;
   padding-left: calc(#{fluid-val($gutter-x)} * .5);
-  margin-top: fluid-val($gutter-y);
+  padding-right: calc(#{fluid-val($gutter-x)} * .5);
 }
 
 @mixin make-col($size: false, $columns: $grid-columns) {
@@ -54,10 +50,9 @@
   @each $breakpoint in map-keys($breakpoints) {
     $infix: breakpoint-infix($breakpoint, $breakpoints);
 
-    @include media-breakpoint-up($breakpoint, $breakpoints) {
-      // Provide basic `.col-{bp}` classes for equal-width flexbox columns
+    @include media-breakpoint-down($breakpoint, $breakpoints) {
       .col#{$infix} {
-        flex: 1 0 0%; // Flexbugs #4: https://github.com/philipwalton/flexbugs#flexbug-4
+        flex: 1 0 0%;
       }
 
       .row-cols#{$infix}-auto > * {
@@ -83,9 +78,8 @@
           }
         }
 
-        // `$columns - 1` because offsetting by the width of an entire row isn't possible
         @for $i from 0 through ($columns - 1) {
-          @if not ($infix == "" and $i == 0) { // Avoid emitting useless .offset-0
+          @if not ($infix == "" and $i == 0) {
             .offset#{$infix}-#{$i} {
               @include make-col-offset($i, $columns);
             }
@@ -93,5 +87,16 @@
         }
       }
     }
+  }
+}
+
+@mixin default-row($gutter-x: $grid-gutter-width, $gutter-y: $grid-gutter-y-width) {
+  .row {
+    @include make-row($gutter-x, $gutter-y);
+    > * {
+      @include make-col-ready($gutter-x, $gutter-y);
+    }
+
+    @include ch-posi;
   }
 }

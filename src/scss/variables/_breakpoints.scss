@@ -10,6 +10,7 @@ $grid-breakpoints: (
 
 // Grid columns
 $grid-columns: 12 !default;
-$grid-gutter-width: 15 !default;
+$grid-gutter-width: 3 !default;
+$grid-gutter-y-width: 7 !default;
 $grid-row-columns: 6 !default;
 $gutters: $spacing-size-groups !default;

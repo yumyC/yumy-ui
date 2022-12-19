@@ -1,61 +1,47 @@
-// Custom icon
-.tis-icon-colon {
-  @include colon;
+@font-face {
+  font-family: "icomoon";
+  src: url("@/assets/fonts/icon.woff?myp81g") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
 }
-.bars {
-  @include bar;
-}
-.slide-show {
-  &::after {
-    transform: rotate(-45deg);
-  }
-}
-.icon-rss {
-  font-size: px2calculations(25);
 
-  @include tablet-below {
-    font-size: px2calculations(20);
+[class^="icon-"],
+[class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "icomoon" !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@each $key, $val in $icon-font-group {
+  .icon-#{$key} {
+    font-size: 22px;
+    &::before {
+      content: map-get($val, "type");
+      color: map-get($val, "color");
+    }
   }
 }
-.icon-close {
-  @include close-icon;
 
-  display: inline-block;
-  width: px2calculations(12);
-  height: px2calculations(12);
-  margin-left: px2calculations(12);
-  cursor: pointer;
+[class*="icon-circle"] {
+  @include fluidder(23, font-size);
 
-  &::before,
-  &::after {
-    top: px2calculations(5);
+  border-radius: 50%;
+
+  .sm {
+    @include fluidder(14, font-size);
   }
 }
-.plus-minus-icon {
-  @include plus-minus-icon;
-}
-.triangle-arrow-down {
-  @include triangle-arrow-down;
 
-  .slide-show & {
-    @include triangle-arrow-top;
-  }
-}
-.triangle-arrow-top {
-  @include triangle-arrow-top;
-
-  .slide-show & {
-    @include triangle-arrow-down;
-  }
-}
-.icon-long-arrow {
-  @include right-arrow($size: 12, $borderSize: $border-size-md, $color: $black);
-
-  &::after {
-    right: auto;
-  }
-  &.reverse {
-    line-height: 0;
-    transform: rotate(180deg);
-  }
+.icon-search {
+  display: none;
 }

@@ -1,0 +1,96 @@
+@mixin modal {
+  @include set-content-center;
+
+  display: none;
+  position: fixed;
+  max-width: 702px;
+  outline: 0;
+  width: 100%;
+  z-index: 1050;
+
+  @include mobile {
+    max-width: 90%;
+  }
+}
+
+@mixin modal-dialog {
+  position: relative;
+  width: auto;
+  pointer-events: none;
+  transition: $modal-transition;
+
+  .modal.fade & {
+    transform: $modal-fade-transform;
+  }
+  .modal.show & {
+    transform: $modal-show-transform;
+  }
+
+  .modal.modal-static & {
+    transform: $modal-scale-transform;
+  }
+}
+
+@mixin modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: $zindex-modal-backdrop;
+  width: 100vw;
+  height: 100vh;
+  background-color: $modal-backdrop-bg;
+  transition: opacity .3 ease-out;
+
+  &.fade { opacity: 0; }
+  &.show { opacity: 1; }
+}
+
+@mixin modal-content {
+  display: flex;
+  flex-direction: column;
+  outline: 0;
+  pointer-events: auto;
+  position: relative;
+  width: 100%;
+  background-clip: padding-box;
+  background-color: $white;
+  border-radius: 10px;
+  border: 1px solid $modal-backdrop-bg;
+
+  .icon-close {
+    cursor: pointer;
+  }
+
+  @include fluidder(13 13 8 13, padding);
+
+  @include mobile {
+    padding: 16px;
+  }
+}
+
+@mixin modal-close {
+  float: right;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1;
+  opacity: .5;
+}
+
+@mixin modal-button-group {
+  display: flex;
+  width: 100%;
+  margin-left: -8.5px;
+  margin-right: -8.5px;
+  margin-top: 40px;
+
+  .summary-footer & {
+    margin-top: 24px;
+  }
+
+  > * {
+    margin-left: 8.5px;
+    margin-right: 8.5px;
+    flex: 1;
+    max-width: initial !important;
+  }
+}

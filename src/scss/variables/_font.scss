@@ -1,5 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
 // Base font
-$font-size-root: 16;
+$font-size-root: 7;
+$font-medium: 500;
+$font-bold: 600;
+$font-bold-max: 700;
+$line-height-normal: normal;
 
 // Unit
 $unit-map: (
@@ -19,4 +25,48 @@ $linelip-size-groups: (
   3: 3,
   4: 4,
   5: 5,
+);
+
+// Icon font
+$icon-font-group: (
+  "search": (
+    "type": "\e902",
+    "color": $theme-primary-color
+  ),
+  "clock": (
+    "type": "\e906",
+    "color": $white
+  ),
+  "shopping-chart": (
+    "type": "\e90c",
+    "color": $white
+  ),
+  "warehouse": (
+    "type": "\e909",
+    "color": $white
+  ),
+  "double-arrow": (
+    "type": "\e903",
+    "color": $white
+  ),
+  "compound-path": (
+    "type": "\e904",
+    "color": $white
+  ),
+  "pill": (
+    "type": "\e90a",
+    "color": $white
+  ),
+  "circle-close": (
+    "type": "\e900",
+    "color": $black
+  ),
+  "circle": (
+    "type": "\e901",
+    "color": $black
+  ),
+  "close": (
+    "type": "\e905",
+    "color": $black
+  )
 );

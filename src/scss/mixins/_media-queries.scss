@@ -70,7 +70,7 @@
 }
 
 @mixin tablet-below {
-  @include media-breakpoint-between("xs", "md") {
+  @include media-breakpoint-between("xs", "lg") {
     @content;
   }
 }
@@ -83,6 +83,12 @@
 
 @mixin pc-only {
   @include media-breakpoint-between("lg", null) {
+    @content;
+  }
+}
+
+@mixin max-screen-only {
+  @include media-breakpoint-between("xxl", null) {
     @content;
   }
 }

@@ -1,39 +1,53 @@
 // Container
-.contanier {
+.container {
   @include set-container;
-  @include flex-layout(column, center, flex-start);
+  @include flex-layout(column);
 
   height: 100%;
-  background-color: $white;
-}
 
-.position-relative {
-  position: relative;
+  &.x-center {
+    align-items: center;
+  }
 }
 
 // Row
 // Rows contain your columns.
-.row {
-  @include make-row;
+@include default-row;
 
-  > * {
-    @include make-col-ready;
-
-    > * {
-      width: 100% !important;
-    }
-  }
-}
 .column {
-  @include flex-layout(column);
-
-  &:not(:last-child) {
-    margin-bottom: fluid-val(-20);
-  }
+  @include flex-layout(column, initial, initial);
 
   > *:not(:last-child) {
-    margin-bottom: fluid-val(20);
+    @include fluidder(7, margin-bottom);
+
+    &.page-container {
+      margin-bottom: 0;
+    }
   }
 }
 
 @include make-grid-columns;
+
+// Position
+.posi-relative {
+  position: relative;
+}
+
+// Flex
+.only-row {
+  display: flex;
+
+  @include ch-posi;
+}
+.fl-none {
+  flex: none;
+}
+.fl-1 {
+  flex: 1;
+}
+
+// width
+.width-100 {
+  width: 100%;
+  max-width: 100%;
+}

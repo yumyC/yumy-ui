@@ -1,8 +1,23 @@
 .dialog-off-canvas-main-canvas {
-  @include flex-layout(column", "center", "flex-start);
+  @include flex-layout(column, center, flex-start);
+
+  height: 100%;
+
+  > .column {
+    width: 100%;
+    height: 100%;
+  }
 }
 .toolbar-oriented .toolbar-bar {
   position: fixed;
+}
+.toolbar-oriented .toolbar-tray-vertical {
+  width: 22rem;
+}
+
+// Reset drupal menu
+ul.menu a.is-active {
+  color: $theme-primary-color;
 }
 
 // Reset layout-builder
@@ -22,10 +37,6 @@
 }
 .layout-builder__region {
   outline-color: $theme-line-color;
-}
-.layout-builder__add-section {
-  background-color: $bg-color;
-  outline-color: $light-gray;
 }
 .layout-builder__add-block {
   background-color: $theme-secondary-color;
@@ -143,4 +154,10 @@
 // Media
 drupal-media[data-align="center"] {
   justify-content: center;
+}
+
+// Login & reset form
+.user-login-form,
+.user-pass {
+  @include set-container;
 }
