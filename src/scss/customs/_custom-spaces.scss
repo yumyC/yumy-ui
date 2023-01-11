@@ -1,45 +1,45 @@
 // Pc
 @each $key, $value in $spacing-size-groups {
   // margin
-  .c-ml#{$key} {
+  .ml#{$key} {
     margin-left: #{$value}px !important;
   }
-  .c-mr#{$key} {
+  .mr#{$key} {
     margin-right: #{$value}px !important;
   }
-  .c-mt#{$key} {
+  .mt#{$key} {
     margin-bottom: #{$value}px !important;
   }
-  .c-mb#{$key} {
+  .mb#{$key} {
     margin-bottom: #{$value}px !important;
   }
-  .c-mx#{$key} {
+  .mx#{$key} {
     margin-left: #{$value}px !important;
     margin-right: #{$value}px !important;
   }
-  .c-my#{$key} {
+  .my#{$key} {
     margin-top: #{$value}px !important;
     margin-bottom: #{$value}px !important;
   }
 
   // padding
-  .c-pt#{$key} {
+  .pt#{$key} {
     padding-top: #{$value}px !important;
   }
-  .c-pl#{$key} {
+  .pl#{$key} {
     padding-left: #{$value}px !important;
   }
-  .c-pr#{$key} {
+  .pr#{$key} {
     padding-right: #{$value}px !important;
   }
-  .c-pb#{$key} {
+  .pb#{$key} {
     padding-bottom: #{$value}px !important;
   }
-  .c-px#{$key} {
+  .px#{$key} {
     padding-left: #{$value}px !important;
     padding-right: #{$value}px !important;
   }
-  .c-py#{$key} {
+  .py#{$key} {
     padding-top: #{$value}px !important;
     padding-bottom: #{$value}px !important;
   }
