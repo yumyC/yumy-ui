@@ -50,7 +50,7 @@
   @each $breakpoint in map-keys($breakpoints) {
     $infix: breakpoint-infix($breakpoint, $breakpoints);
 
-    @include media-breakpoint-down($breakpoint, $breakpoints) {
+    @include media-breakpoint-up($breakpoint, $breakpoints) {
       .col#{$infix} {
         flex: 1 0 0%;
       }
