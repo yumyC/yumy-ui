@@ -1,0 +1,21 @@
+stylesheet:
+  version: 1.0.0
+  css:
+    theme:
+      dist/yumyUI.css: {}
+scripts:
+  header: true
+  js:
+    lib/bootstrap.min.js: {}
+scripts_bottom:
+  version: 1.0.0
+  js:
+    dist/yumyUI.js: {}
+
+  dependencies:
+    - core/jquery
+    - core/jquery.once
+    - core/drupal
+    - core/jquery.cookie
+    - core/modernizr
+    - core/drupalSettings

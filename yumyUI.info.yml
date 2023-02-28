@@ -1,0 +1,23 @@
+name: 'yumyUI Theme'
+type: theme
+description: 'A theme for yumyUI'
+base theme: classy
+package: Custom
+core_version_requirement: ^9
+
+logo: 'logo.svg'
+
+libraries:
+  - yumyUI/stylesheet
+  - yumyUI/scripts
+  - yumyUI/scripts_bottom
+ckeditor_stylesheets:
+  - dist/ckeditor.css
+
+regions:
+  header_primary: Header Primary
+  header_secondary: Header Secondary
+  highlighted: Highlighted
+  content: Content
+  footer_primary: Footer Primary
+  footer_secondary: Footer Secondary

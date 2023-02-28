@@ -1,0 +1,28 @@
+<?php
+
+/**
+ * @file
+ * Place your custom PHP code in this file.
+ */
+
+/**
+ * Implements THEME_page_attachments_alter().
+ */
+function yumyUI_page_attachments_alter(array &$attachments) {
+  $theme_path = \Drupal::theme()->getActiveTheme()->getPath();
+  $fonts = [
+    '/dist/fonts/icon.woff' => 'woff',
+  ];
+  foreach ($fonts as $font => $type) {
+    $attachments['#attached']['html_head_link'][] = [
+    [
+      'rel' => 'preload',
+      'href' => '/' . $theme_path . $font,
+      'as' => 'font',
+      'type' => 'font/' . $type,
+      'crossorigin' => 'anonymous',
+    ],
+      TRUE,
+    ];
+  }
+}
