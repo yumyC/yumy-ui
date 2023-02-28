@@ -1,0 +1,15 @@
+// Public
+@import "normalize.css/normalize.css";
+@import "@/scss/variables";
+
+// Reusable
+@import "@/scss/mixins";
+
+// Base
+@import "@/scss/base";
+
+// customs
+@import "@/scss/customs";
+
+// Ckeditor
+@import "@/scss/ckeditor/ckeditor-only";

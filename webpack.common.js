@@ -9,6 +9,7 @@ module.exports = {
   },
   entry: {
     yumyUI: './src/index.js',
+    ckeditor: path.resolve(__dirname, 'src/scss', 'ckeditor.scss'),
   },
   output: {
     filename: '[name].js',
