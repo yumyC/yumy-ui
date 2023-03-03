@@ -26,7 +26,7 @@ html {
 }
 
 body {
-  @include fluidder(16, font-size);
+  @include fluidder($font-size-root, $mobile-size: 12);
 
   font-family: "Poppins", sans-serif;
   word-break: break-word;

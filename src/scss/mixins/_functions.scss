@@ -2,16 +2,12 @@
 
 // Functions
 // px2calculations
-@function px2calculations($dividend, $divisor: $font-size-root, $convertUnit: "rem", $is-max: "normal") {
+@function px2calculations($dividend, $divisor: $font-size-root, $convertUnit: "rem") {
   $map-unit-val: map-get($unit-map, $convertUnit);
   $map-unit-val: if($map-unit-val and $map-unit-val > 0, $map-unit-val, 0);
   $res: "";
 
   @each $item in $dividend {
-    @if $is-max == "max" {
-      $item: $item * $max-of-variation;
-    }
-
     @if $item == 0 {
       $res: $res + " 0";
     } @else {
@@ -24,7 +20,7 @@
 }
 
 // rem + vw
-@function fluid-val($rootSize: $font-size-root, $max-width: $ui-width, $fluidConvertUnit: "rem") {
+@function fluid-val($rootSize: $font-size-root, $max-width: $content-width, $fluidConvertUnit: "rem") {
   $res: "";
 
   @each $item in $rootSize {

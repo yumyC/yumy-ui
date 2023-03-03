@@ -15,11 +15,11 @@
 }
 
 // Render the corresponding css style
-@mixin fluidder($values, $property: font-size, $mobile-origin: null) {
+@mixin fluidder($values, $property: font-size, $mobile-size: null) {
   @if $values {
-    $val-desktop: fluid-val($values);
-    $val-desktop-max: px2calculations($values, $is-max: "max");
-    $val-origin: if($mobile-origin, px2calculations($mobile-origin), px2calculations($values));
+    $val-desktop-max: fluid-val($values);
+    $val-origin: if($mobile-size, fluid-val($mobile-size), fluid-val($values));
+    $val-mobile-pc-range: fluid-val($values);
 
     #{$property}: $val-origin;
 
@@ -28,7 +28,7 @@
     }
 
     @include tablet-up {
-      #{$property}: $val-desktop;
+      #{$property}: $val-mobile-pc-range;
     }
 
     @include max-screen-only {

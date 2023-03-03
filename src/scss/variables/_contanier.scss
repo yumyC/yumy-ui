@@ -1,13 +1,9 @@
 @use "sass:math";
 
-// Mobile width
-$base-mobile-width: 768;
-$ui-width: 768;
+// width
+$ui-mobile-width: 768;
+$ui-pc-width: 1280;
+$content-width: $ui-pc-width;
 
 // Coefficient of variation
-$coefficient-of-variation: 10;
-$max-of-variation: math.div(1440, $ui-width);
-
-// Pc Width
-$ue-width: $ui-width * $max-of-variation;
-$content-width: $ui-width * $max-of-variation;
+$coefficient-of-variation: math.div($ui-pc-width, $ui-mobile-width);
