@@ -39,17 +39,14 @@
 
   @include ch-posi;
 }
-.fl-none {
+.flex-none {
   flex: none;
 }
-.fl-1 {
-  flex: 1;
+.flex-1 {
+  flex: 1 1 0%;
 }
-
-// width
-.width-100 {
-  width: 100%;
-  max-width: 100%;
+.flex-auto {
+  flex: 1 1 auto;
 }
 
 // media

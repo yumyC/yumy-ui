@@ -16,12 +16,7 @@
 }
 
 :root {
-  --banner-content-height: 400px;
   --header-height: fluid-val(56);
-
-  @include mobile {
-    --banner-content-height: 185px;
-  }
 }
 
 html {

@@ -1,5 +1,6 @@
 @each $key, $value in $color-group {
-  .color-#{$key} {
+  // Color
+  .c-#{$key} {
     color: $value !important;
 
     &::before {
@@ -7,11 +8,13 @@
     }
   }
 
-  .border-color-#{$key} {
+  // Border color
+  .b-#{$key} {
     border-color: $value !important;
   }
 
-  .bg-color-#{$key} {
+  // Background color
+  .bg-#{$key} {
     background-color: $value !important;
   }
 }

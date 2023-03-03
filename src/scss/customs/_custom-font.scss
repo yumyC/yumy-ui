@@ -45,3 +45,9 @@
 .icon-search {
   display: none;
 }
+
+@each $key, $value in $linelip-size-groups {
+  .linelip-#{$key} {
+    @include linelip($value);
+  }
+}
