@@ -51,3 +51,24 @@
   width: 100%;
   max-width: 100%;
 }
+
+// media
+@each $key, $value in $grid-breakpoints {
+  .media-down-#{$key} {
+    display: none;
+
+    @include media-breakpoint-down($key) {
+      display: block;
+    }
+  }
+}
+
+@each $key, $value in $grid-breakpoints {
+  .media-up-#{$key} {
+    display: none;
+
+    @include media-breakpoint-up($key) {
+      display: block;
+    }
+  }
+}
