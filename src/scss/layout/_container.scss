@@ -6,8 +6,6 @@ body {
 }
 
 .page-container {
-  @include set-container($gutter: 0);
-
   padding-top: (var(--header-height));
   padding-bottom: px2calculations($paragraph-margin-bottom);
 

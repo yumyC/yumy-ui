@@ -1,6 +1,5 @@
 // Container
 .container {
-  @include set-container;
   @include flex-layout(column);
 
   height: 100%;

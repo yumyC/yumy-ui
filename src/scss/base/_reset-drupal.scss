@@ -25,12 +25,6 @@ ul.menu a.is-active {
   *:last-child:not(:first-child) {
     margin-bottom: 0;
   }
-
-  &.layout--onecol:not(.fullScreen) .layout__region > *.block {
-    &:not([class*="banner--banner"], .block-quicktabs) {
-      @include set-container($max-width: $content-width);
-    }
-  }
 }
 .layout-builder {
   border-color: $theme-line-color;
@@ -154,10 +148,4 @@ ul.menu a.is-active {
 // Media
 drupal-media[data-align="center"] {
   justify-content: center;
-}
-
-// Login & reset form
-.user-login-form,
-.user-pass {
-  @include set-container;
 }
